@@ -3,6 +3,7 @@ const Users = require('./users-model.js');//model
 const router = express.Router();//for routes
 const {isValid} = require('./isValid.js');//checks to see if "user" has username & pass
 const bcrypt = require('bcryptjs');//hashes password
+const jwt = require('jsonwebtoken');
 
 router.post('/register', (req,res) => {//add user w/hashed password to db
     const user = req.body;
@@ -20,6 +21,10 @@ router.post('/register', (req,res) => {//add user w/hashed password to db
     }else{
         res.status(400).json({ message: "couldnt register user; add username and password" });
     }
+})
+
+router.post('/login', (req,res) => {
+    
 })
 
 module.exports = router;
