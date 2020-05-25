@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/BW-Essentialism2/Backend/issues"
   },
-  "homepage": "https://github.com/BW-Essentialism2/Backend#readme"
+  "homepage": "https://github.com/BW-Essentialism2/Backend#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
