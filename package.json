@@ -4,7 +4,7 @@
   "description": "backend repo for essentialism app. more info will be provided on readme",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "server": "nodemon index.js"
   },
   "repository": {
     "type": "git",
