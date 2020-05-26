@@ -32,9 +32,12 @@ module.exports = {
       min: 2,
       max: 10
     },
+    seeds: {
+      directory: "./database/seeds"
+    },
     migrations: {
-      tableName: 'knex_migrations'
-    }
+      directory: "./database/migrations"
+    },
   }
 
 };
