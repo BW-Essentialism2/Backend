@@ -1,5 +1,5 @@
 function isValid(user) {
-    return user.username && user.password;
+    return user.firstname && user.lastname && user.email && user.password;
 }
   
 module.exports = {
