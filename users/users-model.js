@@ -8,7 +8,8 @@ module.exports = {
 }
 
 function add(user){
-    return db('users').insert(user);
+    return db('users').insert(user, "*")
+        .then(([users]) => users)
 }
 
 function findBy(filter){
