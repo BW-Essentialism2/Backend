@@ -1,5 +1,5 @@
 // Update with your config settings.
-
+const pgConnection = process.env.DATABASE_URL || 'postgresql://postgres@localhost/essentialism';
 module.exports = {
 
   development: {
@@ -23,11 +23,7 @@ module.exports = {
 
   production: {
     client: 'pg',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
+    connection: pgConnection,
     pool: {
       min: 2,
       max: 10
