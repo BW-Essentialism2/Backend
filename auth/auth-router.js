@@ -20,7 +20,7 @@ router.post('/register', (req,res) => {//add user w/hashed password to db
                 res.status(500).json({message: error.message})
             })
     }else{
-        res.status(400).json({ message: "couldnt register user; add username and password" });
+        res.status(400).json({ message: "couldnt register user; add firstname, lastname, email, and password" });
     }
 })
 
