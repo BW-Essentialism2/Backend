@@ -41,5 +41,27 @@ router.delete('/:id', (req,res) =>{
         })
 })
 
+router.put('/:id', (req,res) => {
+    const {id} = req.body;
+    Users.findById(id)
+        .then(users => {
+            console.log('users in put: ', users)
+            if(users === null){
+                res.status(400).json("user doesn't exist")
+            }else{
+                Users.update(users.id, req.body)
+                    .then(updatedUser => {
+                        res.status(201).json(updatedUser)
+                    })
+                    .catch(error => {
+                        res.status(500).json(error)
+                    })
+            }
+        })
+        .catch(error => {
+            res.status(500).json(error)
+        })
+})
+
 
 module.exports = router;
