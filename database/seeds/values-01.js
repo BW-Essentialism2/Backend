@@ -19,7 +19,6 @@ exports.seed = function(knex) {
         {name: "relationships", user_id: 1},
         {name: "humor", user_id: 1},
         {name: "success", user_id: 1},
-        {name: "other", user_id: 1},
       ]);
     });
 };
