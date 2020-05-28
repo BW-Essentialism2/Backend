@@ -9,6 +9,10 @@ const usersRouter = require('./users/users-router.js');
 const valuesRouter = require('./values/values-router.js');
 const authenticator = require('./auth/authenticate-middleware.js');
 
+server.get('/helloWorld', (req,res) => {
+    res.status(200).json({message: "hello world test"});
+})
+
 //auth "router"
 server.use('/api/auth', authRouter);
 //user routes

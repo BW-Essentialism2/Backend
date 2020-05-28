@@ -6,7 +6,7 @@
   "scripts": {
     "server": "nodemon index.js",
     "start": "node index.js",
-    "test": "jest --watch --verbose"
+    "test": "jest --watch --verbose --runInBand --detectOpenHandles"
   },
   "repository": {
     "type": "git",
