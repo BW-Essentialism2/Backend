@@ -14,7 +14,8 @@ router.post('/register', (req,res) => {//add user w/hashed password to db
         Users.add(user)
             .then(user => {
                 console.log("user: ", user)
-                res.status(201).json({user})
+                const token = generateToken(user);
+                res.status(200).json({ firstname: user.firstname, token, userId: user.id });
             })
             .catch(error => {
                 res.status(500).json({message: error.message})
