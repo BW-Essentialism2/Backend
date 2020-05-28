@@ -3,6 +3,13 @@ exports.up = function(knex) {
     .createTable('values', values => {
       values.increments();
       values.string('name').unique().notNullable();
+      values.integer('user_id')
+        .unsigned()
+        .notNullable()
+        .references("id")
+        .inTable("users")
+        .onDelete("CASCADE")
+        .onUpdate("CASCADE");
       values.boolean('is_set_to').defaultTo(false);
     })
 
