@@ -8,6 +8,7 @@ module.exports = {
     remove,
     findById,
     update,
+    
 }
 
 function add(user){
@@ -38,4 +39,6 @@ function update(id, changes) {
       .update(changes)
       .then((count) => (count > 0 ? get(id) : null));
   }
+
+
   

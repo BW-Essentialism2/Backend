@@ -9,7 +9,7 @@ router.post('/', (req,res) => {
     const value = req.body;
         Values.add(value)
             .then(value => {
-                console.log("value: ", value)
+                // console.log("value: ", value)
                 res.status(201).json({message: "value added is ", value})
             })
             .catch(error => {
@@ -20,7 +20,7 @@ router.post('/', (req,res) => {
 router.get('/', (req,res) => {
     Values.find()
         .then(values => {
-            console.log("Values in get of Values router", values)
+            // console.log("Values in get of Values router", values)
             res.status(201).json(values)
         })
         .catch(error => {
@@ -33,7 +33,7 @@ router.get('/:id', (req,res) => {
     const {id} = req.params;
     Values.findById(id)
         .then(value => {
-            console.log(value)
+            // console.log(value)
             res.status(200).json(value)
         })
         .catch(error => {
@@ -46,11 +46,23 @@ router.delete('/:id', (req,res) =>{
     const {id} = req.params;
     Values.remove(id)
         .then(value => {
-            console.log(value)
+            // console.log(value)
             res.status(201).json(`${vaule} user deleted`)
         })
         .catch(error => {
             res.status(400).json({message: `${error}; oops. user not deleted`})
+        })
+})
+
+//GET user values
+router.get('/user/:id', (req,res) => {
+    const {id} = req.params.id;
+    Values.getUserValues(id)
+        .then(userVals => {
+            res.status(201).json({message: "you are the man!", userVals})
+        })
+        .catch(error => {
+            res.status(500).json({message: `sorry :( ${error.message}`})
         })
 })
 

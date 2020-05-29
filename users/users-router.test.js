@@ -16,4 +16,13 @@ describe('server.js', () => {
             expect(response.status).toEqual(expectedStatusCode);
         })
     })
+    describe('test api/users endpoint', () => {//only works without authentication middleware
+        it('should return users array length', () => {
+            return request(server).get('/api/users')
+                .then(res => {
+                    // console.log('res.body: ', res.body.length)
+                    expect(res.body.length).toBe(7);
+                })
+        })
+    })
 })
