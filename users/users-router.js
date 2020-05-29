@@ -4,6 +4,9 @@ const router = express.Router();//for routes
 
 const Users = require('./users-model.js');
 
+//CRUD OPS for user router
+// i should be able to add a user, get a user, edit a user and delete a user
+//user is added when they register so a post wont be here
 router.get('/', (req,res) => {
     Users.find()
         .then(users => {

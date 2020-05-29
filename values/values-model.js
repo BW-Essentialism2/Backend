@@ -31,14 +31,12 @@ function remove(id) {
 function findById(id){
     return db('values').where('id', id).first();
 }
-
 function getUserValues(userID){
-    return db('users')           
-        .join('user_values', 'users.id', '=', 'user_values.user_id')
-        .join('values', 'user_values.value_id', '=', 'values.id')
-        .select('users.firstname', 'values.name')
+    return db('user_values').where('user_values.users_id',userID)
+        .join( 'users' , 'user_values.user_id', 'users.id' )
+        .join( 'values', 'user_values.value_id' , 'values.id' )
+        .select('users.firstname','values.name')
 }
-
 
 // return db('tasks')
 // .join('projects', 'tasks.project_id', '=', 'projects.id').where('tasks.project_id', id)
